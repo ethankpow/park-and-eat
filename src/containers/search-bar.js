@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchRestaurant } from "../actions/index";
+import RestMap from './rest-map';
+import SimpleExample from './map-test';
+// import 'leaflet/dist/leaflet.css';
+
+
 
 class SearchBar extends Component {
   constructor(props) {
@@ -18,29 +23,34 @@ class SearchBar extends Component {
   }
 
   onFormSubmit(event) {
-    event.preventDefault();
-
-    // fetch restaurant data
-    this.props.fetchRestaurant(this.state.term);
-    console.log(this.state.term)
-    this.setState({ term: "" });
-  }
+     event.preventDefault();
+     var preChangeTerm = this.state.term
+     // this changes any lower case or sentence case text in the input to upper case separated by '+'
+     var changedString = preChangeTerm.toUpperCase().replace(/ /g , "+")
+     // fetch restaurant data
+     this.props.fetchRestaurant(changedString);
+     this.setState({ term: "" });
+   }
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit} className="input-group">
-        <input
-          placeholder="Search for a restaurant"
-          className="form-control"
-          value={this.state.term}
-          onChange={this.onInputChange}
-        />
-        <span className="input-group-btn">
-          <button type="submit" className="btn btn-secondary">Submit</button>
-        </span>
+      <div>
+        <form onSubmit={this.onFormSubmit} className="input-group">
+          <input
+            placeholder="Search for a restaurant"
+            className="form-control"
+            value={this.state.term}
+            onChange={this.onInputChange}
+          />
+          <span className="input-group-btn">
+            <button type="submit" className="btn btn-secondary">Submit</button>
+          </span>
 
 
-      </form>
+        </form>
+          <RestMap />
+          <SimpleExample />
+      </div>
     );
   }
 }
