@@ -1,30 +1,40 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {Map, Marker, Popup, TileLayer} from 'react-leaflet'
+
 
 class RestMap extends Component {
-  constructor(){
+  constructor() {
     super()
+
     console.log(this)
   }
 
-  componentDidMount(){
-    //debugger;
-  // let geo = L.map('mapid').setView([35.988611, -78.907222], 13);
+  componentDidMount() {}
 
-  }
+  // restaurantLocation() {
+  //
+  //
+  // }
 
-
-  render(){
+  render() {
+    const position = [51.505, -0.09]
     return (
-      <div id="mapid">
-
-      </div>
-
-    );
+      <Map center={position} zoom={13}>
+        <TileLayer attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'/>
+          <Marker position={position}>
+            <Popup>
+              A pretty CSS3 popup.
+              <br/>
+              Easily customizable.
+             </Popup>
+          </Marker>
+        </Map>
+      );
   }
 };
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
   console.log('rest map', state)
   return state
 }

@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchRestaurant } from "../actions/index";
 import RestMap from './rest-map';
+import SimpleExample from './map-test';
+// import 'leaflet/dist/leaflet.css';
+
+
 
 class SearchBar extends Component {
   constructor(props) {
@@ -44,7 +48,8 @@ class SearchBar extends Component {
 
 
         </form>
-        <RestMap />
+          <RestMap />
+          <SimpleExample />
       </div>
     );
   }
