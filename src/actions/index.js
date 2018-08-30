@@ -8,7 +8,7 @@ export function fetchRestaurant(restaurant) {
   const url = `${ROOT_URL}${restaurant}`;
   const request = axios.get(url);
 
-  console.log('Request', request)
+  // console.log('Request', request)
 
   return {
     type: FETCH_RESTAURANT,

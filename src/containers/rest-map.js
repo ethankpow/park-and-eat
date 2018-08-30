@@ -4,14 +4,14 @@ import { connect } from "react-redux";
 class RestMap extends Component {
   constructor(){
     super()
-
+    console.log(this)
   }
 
-  componentDidMount({
-    debugger
-    let geo = L.map('mapid').setView([35.988611, -78.907222], 13);
+  componentDidMount(){
+    //debugger;
+  // let geo = L.map('mapid').setView([35.988611, -78.907222], 13);
 
-  })
+  }
 
 
   render(){
@@ -22,7 +22,11 @@ class RestMap extends Component {
 
     );
   }
+};
+
+function mapStateToProps(state){
+  console.log('rest map', state)
+  return state
 }
 
-
-export default RestMap;
+export default connect(mapStateToProps)(RestMap);
