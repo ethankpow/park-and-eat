@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
     "react": "^16.4.2",
+    "react-browser-router": "^2.1.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",

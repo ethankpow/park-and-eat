@@ -22,6 +22,7 @@ class SearchBar extends Component {
 
     // fetch restaurant data
     this.props.fetchRestaurant(this.state.term);
+    console.log(this.state.term)
     this.setState({ term: "" });
   }
 
@@ -37,6 +38,8 @@ class SearchBar extends Component {
         <span className="input-group-btn">
           <button type="submit" className="btn btn-secondary">Submit</button>
         </span>
+
+
       </form>
     );
   }
