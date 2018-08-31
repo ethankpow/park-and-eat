@@ -19,6 +19,8 @@ class RestMap extends Component {
 
   render() {
 
+    console.log(this);
+    
     return(
       <div></div>
     )
@@ -39,8 +41,9 @@ class RestMap extends Component {
 };
 
 function mapStateToProps(state) {
-  console.log('rest map', state)
-  return state
+  console.log(state)
+  return state//.restaurant
+
 }
 
 export default connect(mapStateToProps)(RestMap);
