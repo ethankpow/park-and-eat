@@ -66,8 +66,6 @@ class SearchBar extends Component {
 // }
   render() {
     console.log(this.props.location)
-    debugger
-
 
     return (<div>
       <div className="location-search-btn">
