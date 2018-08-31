@@ -79,8 +79,7 @@ class SearchBar extends Component {
             key: "AIzaSyB-w6uVNO3Cs4EMkSvEojoqeyHnTXOvbQU"
           }} defaultCenter={this.props.location.center} defaultZoom={13}>
 
-
-
+          <Marker position={{lat : this.props.location.center.lat, lng : this.props.location.center.lng }}/>
         </GoogleMapReact>
       </div>
     </div>);
@@ -98,6 +97,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+// lat={this.props.location.center.lat}
+// lng={this.props.location.center.lng}
+// text={'Hi'}/>
 
 // import React, { Component } from "react";
 // import { connect } from "react-redux";
