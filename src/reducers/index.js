@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import RestaurantReducer from "./reducer-restaurant";
+import BreakinReducer from "./reducer-restaurant";
 
 const rootReducer = combineReducers({
-  restaurant: RestaurantReducer
+  breakins: BreakinReducer
 });
 
 export default rootReducer;
