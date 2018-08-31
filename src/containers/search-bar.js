@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchRestaurant } from "../actions/index";
 import RestMap from './rest-map';
+import SimpleMap from './test-map.js'
 
 
 
@@ -46,7 +47,12 @@ class SearchBar extends Component {
 
 
         </form>
-          <RestMap />
+          <div className="container">
+            <RestMap />
+            <div className="row">
+              <button type="submit" className="btn btn-primary">Are you safe?</button>
+            </div>
+          </div>
       </div>
     );
   }
