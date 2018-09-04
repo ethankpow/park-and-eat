@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
-import RestaurantReducer from "./reducer-restaurant";
+import {Locator, Outlaws} from "./reducer-breakin";
 
 const rootReducer = combineReducers({
-  restaurant: RestaurantReducer
+  location: Locator,
+  breakinData: Outlaws
 });
 
 export default rootReducer;
