@@ -1,9 +1,7 @@
 import { FETCH_BREAKINS, FETCH_LOCATION } from "../actions/index";
 //convert rest names to sentence case
-export default function(state = [], action) {
+const Locator = function(state = [], action) {
   switch (action.type) {
-    case FETCH_BREAKINS:
-      return state;
       case FETCH_LOCATION:
         return {
           center: {
@@ -17,7 +15,20 @@ export default function(state = [], action) {
   }
 }
 
+const Outlaws = function(state = [], action){
+  switch (action.type) {
+    case FETCH_BREAKINS:
+
+      return {
+        breakinData: action.payload.data.records
+      };
+      default:
+      return state;
+  }
+}
+export {Locator, Outlaws}
 // console.log('returning FETCH_RESTAURANT with calue of', action);
+
 
 
 

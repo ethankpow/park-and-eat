@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const breakins_url = `https://opendurham.nc.gov/api/records/1.0/search/?dataset=durham-police-crime-reports&rows=5&facet=date_rept&facet=dow1&facet=reportedas&facet=chrgdesc&facet=big_zone&refine.reportedas=BREAK+IN+VEHICL&refine.chrgdesc=LARCENY+-+FROM+MOTOR+VEHICLE`;
+const breakins_url = `https://opendurham.nc.gov/api/records/1.0/search/?dataset=durham-police-crime-reports&rows=3000&facet=date_rept&facet=dow1&facet=reportedas&facet=chrgdesc&facet=big_zone&refine.reportedas=BREAK+IN+VEHICL&refine.chrgdesc=LARCENY+-+FROM+MOTOR+VEHICLE`;
 
 export const FETCH_BREAKINS = "FETCH_BREAKINS";
 export const FETCH_LOCATION = "FETCH_LOCATION";
@@ -23,7 +23,7 @@ let request = new Promise( (resolve, reject) => {
 
 export function fetchBreakins(){
  const request = axios.get(breakins_url);
-
+ console.log('break in', request)
  return {
    type: FETCH_BREAKINS,
    payload: request

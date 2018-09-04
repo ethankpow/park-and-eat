@@ -16,6 +16,8 @@ const Marker = ({text}) => <div style={{
     transform: 'translate(-50%, -50%)'
   }}>{text}</div>;
 
+  const defaultCenter = (0)
+
 class SearchBar extends Component {
 
 
@@ -42,6 +44,7 @@ class SearchBar extends Component {
   getLocation(event) {
     console.log("location getter clicked")
     this.props.fetchLocation()
+    this.props.fetchBreakins()
   }
 // componentWillMount(){
 //   var d = new Date(this.props.time);
@@ -64,8 +67,18 @@ class SearchBar extends Component {
 //
 //   console.log(formattedDate);
 // }
+componentDidMount(){
+
+}
+
+
   render() {
-    console.log(this.props.location)
+    console.log('into render func', this.props.breakinData)
+    // var markers = (<Marker text="hi" position="{lat:this.props.location.center.lat,lng:this.props.location.center.lng}"/>);//this.props.breakinData != undefined ? this.props.breakinData.map((markerData) => {
+    // //   return (<Marker text="hi"/>)
+    // // }) : [];
+
+    const breakinData = this.props.breakinData.breakinData || []
 
     return (<div>
       <div className="location-search-btn">
@@ -77,17 +90,29 @@ class SearchBar extends Component {
         }}>
         <GoogleMapReact bootstrapURLKeys={{
             key: "AIzaSyB-w6uVNO3Cs4EMkSvEojoqeyHnTXOvbQU"
-          }} defaultCenter={this.props.location.center} defaultZoom={13}>
-
-          <Marker position={{lat : this.props.location.center.lat, lng : this.props.location.center.lng }}/>
+          }} center={this.props.location.center} defaultZoom={1}>
         </GoogleMapReact>
+
+        <div className="container">
+          {
+              breakinData.map(d => {
+                   return <p>{d.fields.geo_point_2d}</p>
+              })
+
+            }
+
+
+        </div>
+
       </div>
     </div>);
   }
 }
 function mapStateToProps(state) {
-  console.log('Search Bar', state)
-  return {location: state.breakins};
+  console.log('Search Bar', state.breakinData)
+  return {location: state.location,
+          breakinData: state.breakinData
+          };
 }
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
